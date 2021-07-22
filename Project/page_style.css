@@ -1,0 +1,1448 @@
+/*
+Author: Quyet Quang Quy
+ID: 12118217
+Date: 05 Dec 2020
+Version: 1.0
+Robot Exhibition Webs.
+
+This file difines the layout of the webs. The general layout of the website is divided into 4 parts:
+Header:
+    Logo
+    Menu
+Banner:
+    Slide show of picture
+Main:
+    Feedback
+    Naviagation Links
+    Wellcome Message
+    Content
+Footer
+    Copyright
+    Social network Links
+*/
+
+
+/*----------------Public variables--------------------------------------------*/
+:root
+{
+    --testCode:5px;/*testing code*/
+    --timeBanner: 30s;/*Loop of banner slide show*/
+
+    --defaultWidth:65%;/*default size for main body of the web*/
+    --maxDefaultWidth:1028px;
+    --minDefaultWidth:300px;
+
+    --bodybackGround: #f5f5f5;/*main body background*/
+    --headerBackGround:#02354D;/*the remaining color*/
+
+}
+/*-------------------------default setting up---------------------------------*/
+/*all elelment will follow this rule*/
+*{    
+    margin: 0;/*remove all the margin of all elements*/
+}
+/*image banner and main setting*/
+img,.banner,main{
+    border-radius: 0.1em;/*round the corner*/
+    overflow: hidden;/*hinden all the elements if they are not inside the tags*/
+    position: relative;/*set the elment relative that will keep the original layout*/
+    box-shadow: 0 1px 3px 0 rgb(44 58 68 / 10%), 0 1px 1px 0 rgb(44 58 68 / 7%), 0 2px 1px -1px rgb(44 58 68 / 6%);
+}
+/*setting body and whole html layout*/
+body,html{
+
+    color: black;/*black words*/
+    font-family: Roboto,Arial,Helvetica,sans-serif;/*load font*/  
+    font-style: normal;
+    width: 100%;    
+    background: var(--bodybackGround);/*set background color*/
+}
+/*hyperlink setting */
+a{
+    text-decoration: none;/*remove underline of the link*/
+    color: black;
+    font-size: 0.8em;    
+}
+/*default setting of the main content with the public variables*/
+.defaultSize{    
+    width: var(--defaultWidth);/*setting up width*/
+    max-width: var(--maxDefaultWidth);/*setting up max width*/
+    min-width: var(--minDefaultWidth);/*setting up min width*/
+    /*set the content at the middle of the page*/
+    margin-left: auto;  
+    margin-right: auto;
+}
+/*setting the bottom margin of the elements*/
+header,main,.banner
+{
+    margin-bottom:  1.5em;
+}
+/*setting background color and width of the elements*/
+header,main,footer
+{
+    width: 100%;    
+    background: white;
+}
+/*------------------------------Feed back ------------------------------------*/
+/*setting feed back of the div tag which is wrapping the feedback block*/
+.feedback
+{
+    margin-top: 0.5em;
+    padding: 0.3em;
+    position: absolute;/*set position is absolute by set top = 0 and right = -12.2 em*/
+    writing-mode: vertical-rl;/*set feedback word vertical*/
+    right: -12.2em;
+    top: 0;
+    text-align: center;/*set text is center*/
+    background: #0071E7;
+    border-radius: 0.2em 0 0 0.2em;/*set border radius*/
+    color: white;/*set words color white*/
+    box-shadow: 0 0 0.3em 0.15em grey;/*set shadow of the element*/
+    z-index: 1;/*set the block appear on top of the element with z-index 0*/
+    display: inline-flex;
+    flex-direction: column-reverse;
+    width: 13em;
+    height: 11em;
+}
+/*set underline the feedback word*/
+.feedback > h4
+{
+    text-decoration: underline;
+}
+/*hover event of the feeback block this event will be active when it is hovered*/
+.feedback:hover,
+.feedback:active
+{    
+
+    cursor: pointer;/*change the cursor to pointer*/  
+
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: lideOutFeedBack;/*name of animation*/
+    animation-duration: 0.3s;/*duration*/
+    animation-fill-mode: forwards;/*type of running. this stage allow go forwrads*/ 
+}
+/*define the animation function. creating sliding effect from right to left in 0.3 second*/
+@keyframes lideOutFeedBack
+{
+    from {/*could be 0%*/
+        box-shadow: 0 0 0.3em 0.15em grey;
+        right: -12.2em;
+    }
+    to {/*could be 100%*/
+        box-shadow: 0 0 0.3em 0.4em grey;
+        right: 0;
+    }
+}
+/*set the contain of the feedback block*/
+.feedbackDetails
+{
+    margin-left: 0.5em;
+    writing-mode: horizontal-tb;/*turn the content from vertical to horizontal*/
+    padding: 0.5em;
+    text-align: left;/*put the text content to the left*/
+    border-left: solid 0.1em white;/*setting the border */
+    background: white;
+    border-radius: 0.5em;/*set round corner*/
+    color: black;/*set color of words*/
+}
+/* set the margin of the form tag base on the excactly path feedbackDetails > form*/
+.feedbackDetails > form
+{
+    margin-top: 0.5em;
+}
+/*set the layout of feedback controls*/
+.feedbackButtons
+{
+    text-align: center;
+    margin-top: 1em;
+}
+/*set rate button and suggestion layout*/
+.feedbackButtons > input,
+.feedbackButtons > a
+{
+    border-radius: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+/*set rate button*/
+.feedbackButtons > input
+{
+    color: #212529;
+    padding-bottom: 0.2em;
+    padding-top: 0.2em;
+    background-color: #ffc107;
+    border-color: #ffc107;
+    border: 0;
+
+}
+/*set suggestion layout*/
+.feedbackButtons > a
+{
+    color: #fff;
+    padding-bottom: 0.25em;
+    padding-top: 0.25em;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+/*hover effect to change colour and cursor*/
+.feedbackButtons > a:hover,
+.feedbackButtons > a:active
+{
+    cursor: pointer;
+    color: #fff;
+    background-color: #138496;
+    border-color: #117a8b;
+}
+.feedbackButtons > input:hover,
+.feedbackButtons > input:active
+{
+    cursor: pointer;    
+    background-color: #e0a800;
+    border-color: #d39e00;
+
+}
+/*submit button to send the visitors information*/
+.submitbutton
+{
+    height: 2.5em;
+    width: 10em;
+    font-size: medium;
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    border-radius: 0.3em;
+    border: 0;
+}
+
+.submitbutton:hover,
+.submitbutton:active
+{
+    color: #fff;
+    background-color: #218838;
+    border-color: #1e7e34;
+    cursor: pointer;
+}
+/*-----------------------visitor information layout---------------------------*/
+/*set visitor information layout*/
+.visitorInfor
+{
+    margin-top: 4em;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4em;
+}
+/*set conponent in form*/
+.component
+{
+    margin-bottom: 1.5em;
+}
+.component > input,
+.component > textArea,
+.component > select
+{
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    box-sizing: inherit;
+}
+/*setup layout of combobox*/
+select
+{
+    width: border-box;
+}
+/*setup radio group gender*/
+.radioGroup
+{
+    display: block;
+}
+/*setup radio button but not the first one*/
+.radioGroup > input:not(:first-child)
+{
+    margin-left: 1.5em;
+}
+/*set text area layout*/
+.command
+{
+    overflow: auto;
+    resize: vertical;
+    height: 10em;
+    font-style: normal;
+    font-size: 1.2em!important;
+    min-height: 5em;
+}
+/*set labal layout*/
+.component > label
+{
+    margin-bottom: 0.5em;
+    display: block;
+}
+/*set submit butt in center*/
+.submitbutton_layout
+{
+    text-align: center;
+}
+/*-------------------------------------header---------------------------------*/
+/*setting default of the header*/
+header{
+    height: fit-content;/*fit the height with the content inside*/
+    background: var(--headerBackGround);
+    position: sticky;/*stick the header at the top of the page never go away*/
+    top: 0;/*set the position of the header*/
+    box-shadow: 0 0 0.6em 0.3em grey;/*set shadow effect*/
+    z-index: 10;/*z-index = 10 just to make sure the header is on top of every thing*/
+}
+/*setting the header layout*/
+.topHeader
+{
+    display: flex;/*flex display*/
+    flex-direction: row;/*the direction of flex is row which is mean logo and the navigation links are in one row*/
+}
+/*set the logo layout*/
+.logo{
+    /*stting size*/
+    height: 3.5em;
+    width: 15em;
+    background: white;
+    margin-left: 0.5em;
+    margin-top: 1em;
+    border-radius: 2em;
+    opacity: 0;/*set the logo invisible*/
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: logoApear;/*name animation*/
+    animation-duration: 2s;/*duration of animation*/
+    animation-fill-mode: forwards;/*keep the last stage of animation*/
+}
+/*animation function*/
+@keyframes logoApear
+{
+    from { /*from invisibale*/
+        opacity: 0;
+    }
+    to {/*to showing in 2 secon*/
+        opacity: 1;
+    }
+}
+/*setting naviagtion bar*/
+.navigationBar{
+    height: fit-content;/*height is depended on the content*/
+    margin-top: 1em;
+    width: 100%;/*fill up the rest of the space in the header*/
+    background: transparent;/*invisible background color*/
+    overflow: hidden;/*hide all the content which is outside of the navigation bar*/
+}
+/*setting word format in naviagtion bar based on the exactly path*/
+.navigationBar > a > span,
+.navigationBar > .dropDownList > span
+{
+    padding-left: 1.35em;
+    padding-right: 1.35em; 
+    border-right: solid 0.01em white;/*set border right with solid white line*/
+}
+/*set element base on the ID*/
+#aboutUs
+{
+    border: 0;
+}
+/*setting all elements after naviagtionBar*/
+.navigationBar > *{
+    float: right;/*float at right location*/    
+    color: white;/*word color white*/
+    font-size: 1em;/*word size*/    
+    padding-top: 1.25em;
+    padding-bottom: 1.25em;
+    font-weight: bold;/*bold word*/
+}
+/*creating hovering effect to change background and word color*/
+.navigationBar > a:hover,
+.navigationBar > a:active,
+.dropDownList:hover,
+.dropDownList:active
+{
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: menuItemHover;/*name of animation*/
+    animation-duration: 0.3s;/*duration*/
+    animation-fill-mode: forwards;/*keep the last stage*/    
+
+
+}
+/*animation fuction*/
+@keyframes menuItemHover
+{
+    from {
+        background-color: var(--headerBackGround);
+        color:white;
+    }
+    to {
+        background-color: white;
+        color:var(--headerBackGround);}
+}
+/*the drop list which is appear when the mouse hovers on exhibition*/
+.dropDownList {
+    overflow: hidden;/*hide all the content which is not inside*/
+    cursor: pointer;/*change the cursor to pointer*/
+}
+/*when dropdownlist is hovered the listOption is appaered*/
+.dropDownList:hover > .listOption,
+.dropDownList:active > .listOption
+{
+    display: block;
+}
+/*list option of the dropdown list*/
+.listOption{
+    margin-top: 1.1em;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    position: absolute;/*this element is positioned relative to its first positioned */
+    display: none; /*not showing this element*/
+    background: white;
+    border-radius: 0 0 1em 1em;
+    box-shadow: 0 1em 1em 0.1em gray;
+    cursor: default;/*set cursor as deafault narrow*/
+    width: fit-content;/*set width to fit the content*/
+}
+/*remove list symbol*/
+.listOption > li,
+.listOptionMobile {
+    list-style-type: none; 
+}
+/*setting hyperlink in dropdownList*/
+.listOption>li>a,
+.listOption>li>span,
+.listOptionMobile > li > a
+{
+    color: var(--headerBackGround);/*word color*/
+    font-weight: normal;
+    width: 20em;    
+    margin: 0.5em;
+    padding: 1em;
+    display: block;/*show it as block*/
+    font-size: 1em;border-radius: 0.05em;
+}
+/*when the hyperlink in listoption is hovered, the animation is actived*/
+.listOption>li>a:hover,
+.listOption>li>a:active,
+.listOption>li>span:hover,
+.listOption>li>span:active,
+.listOptionMobile > li > a:hover,
+.listOptionMobile > li > a:active
+{    
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: dropListItemHover;/*name of animation*/
+    animation-duration: 0.5s;/*duration*/
+    animation-fill-mode: forwards; /*Keep the last stage of animation*/
+}
+/*animation fuction to change the background, word color and border shape*/
+@keyframes dropListItemHover
+{
+    from {
+        border-radius: 0;        
+        background-color: white;
+        color:var(--headerBackGround);
+    }
+    to {
+        background-color: var(--headerBackGround);
+        color:white;
+        border-radius: 2.05em;
+    }
+}
+/*banner default setting*/
+.banner
+{
+    height: 20em;
+    /*border: 0.5em solid white;set border property*/
+    background: white;
+}
+/*set banner pictures size and position*/
+.banner > img
+{
+    width: 100%;
+    height: 100%; 
+    position: absolute;  
+    z-index: 0;
+}
+/*first picture*/
+.firstBanner
+{
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: firstBanner;/*name of animation*/
+    animation-duration: var(--timeBanner);/*duration of animation*/
+    animation-iteration-count: infinite;/*repeat the animation*/
+    opacity: 0;
+}
+/*animation fuction*/
+@keyframes firstBanner
+{
+    0% {
+        opacity: 0;
+    }
+    25%
+    {
+        opacity: 0;
+
+    }
+    50%
+    {
+        opacity: 0; 
+    }
+    75%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+
+}
+/*second picture*/
+.secondBanner
+{
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: secondBanner;/*name of animation*/
+    animation-duration: var(--timeBanner);/*duration of animation*/
+    animation-iteration-count: infinite;/*repeat the animation*/
+    opacity: 0;
+}
+/*animation fuction*/
+@keyframes secondBanner
+{
+    0% {
+        opacity: 0;
+    }
+    25%
+    {
+        opacity: 0;
+
+    }
+    50%
+    {
+        opacity: 1; 
+    }
+    75%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+
+}
+/*third picture*/
+.thirdBanner
+{
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: thirdBanner;/*name of animation*/
+    animation-duration: var(--timeBanner);/*duration of animation*/
+    animation-iteration-count: infinite;/*repeat the animation*/
+    opacity: 0;
+}
+/*animation fuction*/
+@keyframes thirdBanner
+{
+    0% {
+        opacity: 0;
+    }
+    25%
+    {
+        opacity: 1;
+
+    }
+    50%
+    {
+        opacity: 0; 
+    }
+    75%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+
+}
+/*final picture*/
+.finalBanner
+{
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: finalBanner;/*name of animation*/
+    animation-duration: var(--timeBanner);/*duration of animation*/
+    animation-iteration-count: infinite;/*repeat the animation*/
+
+}
+/*animation fuction*/
+@keyframes finalBanner
+{
+    0% {
+        opacity: 1;
+    }
+    25%
+    {
+        opacity: 0;
+
+    }
+    50%
+    {
+        opacity: 0; 
+    }
+    75%
+    {
+        opacity: 0;
+    }
+    100%
+    {
+        opacity: 1;
+    }
+}
+/*set the slogan of the banner picture*/
+.textBanner1,.textBanner2,.textBanner3,.textBanner4
+{
+    color: white;/*white word*/
+    text-shadow: 0.2em 0.2em 0.3em #000000;/*set shadow effect*/
+    z-index: 1;/*make sure it pop on top of all picture */
+    position: absolute;/*set absolute position and they will overlap each others*/
+    padding: 0.5em;
+    display: block;/*block display*/
+    font-size: 1em;
+    top: -100%;/*move it on out side of the container, so it will be hidden because overflow =  hidden*/
+
+}
+/*some calculation have been done. Therefore, they will appear nicely*/
+/*set timmer of sliding effect of the element*/
+.textBanner1
+{
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: textBanner1;/*name of animation*/
+    animation-duration: var(--timeBanner);/*duration of animation*/
+    animation-iteration-count: infinite;/*repeat the animation*/
+}
+/*animation fuction*/
+@keyframes textBanner1
+{
+    0%,
+    10%,
+    11%,
+    14%,
+    15%,  
+    35%,
+    36%,
+    39%,
+    40%,
+    60%,
+    61%,
+    64%{top:-100%;}
+    65%,
+    85%{top:0;}
+    86%,
+    89%,
+    90%,
+    100%{top:-100%;}
+}
+/*set timmer of sliding effect of the element*/
+.textBanner2
+{
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: textBanner2;/*name of animation*/
+    animation-duration: var(--timeBanner);/*duration of animation*/
+    animation-iteration-count: infinite;/*repeat the animation*/
+}
+/*animation fuction*/
+@keyframes textBanner2
+{
+    0%,
+    10%,
+    11%,
+    14%,
+    15%, 
+    35%,
+    36%,
+    39%{top:-100%;}
+    40%,
+    60%{top:0;}
+    61%,
+    64%,
+    65%,
+    85%,
+    86%,
+    89%,
+    90%,
+    100%{top:-100%;}
+
+}
+/*set timmer of sliding effect of the element*/
+.textBanner3
+{
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: textBanner3;/*name of animation*/
+    animation-duration: var(--timeBanner);/*duration of animation*/
+    animation-iteration-count: infinite;/*repeat the animation*/
+}
+/*animation fuction*/
+@keyframes textBanner3
+{
+    0%,
+    10%,
+    11%,
+    14%{top:-100%;}
+    15%,    
+    35%{top:0;}
+    36%,
+    39%,
+    40%,
+    60%,
+    61%,
+    64%,
+    65%,
+    85%,
+    86%,
+    89%,
+    90%,
+    100%{top:-100%;}
+}
+/*set timmer of sliding effect of the element*/
+.textBanner4
+{
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: textBanner4;/*name of animation*/
+    animation-duration: var(--timeBanner);/*duration of animation*/
+    animation-iteration-count: infinite;/*repeat the animation*/
+}
+/*animation fuction*/
+@keyframes textBanner4
+{
+
+    0%,
+    10%{top:0;}
+    11%,
+    14%,
+    15%,    
+    35%,
+    36%,
+    39%,
+    40%,
+    60%,
+    61%,
+    64%,
+    65%,
+    85%,
+    86%,
+    89%{top:-100%;}
+    90%,
+    100%{top:0;}
+
+}
+/*------------main------------------------*/
+/*set default setting of main element*/
+main{
+    height: fit-content;/*with the size is fit the content*/
+    background: white;  
+    padding-top: 5em;/*make more white space top and bottom with 5 em unit*/
+    padding-bottom: 5em;
+    z-index: 0;/*set z index = 0 to make sure it is below menu*/
+    /*    padding-left: 0.5em;set to fit with the banner
+        padding-right: 0.5em;set to fit with the banner*/
+}
+/*set default layout for wrapper of message content*/
+.welcomeMessage
+{
+    height: fit-content;
+    text-align: center;/*set text is in the middle*/
+}
+/*set up the effect of wellcome massage*/
+.wellcomeCharactor
+{   
+
+    font-family: cursive;
+    font-style: normal;
+    text-transform: uppercase;/*change the word to be uppercase*/    
+    color:  black;/*set the text color is transparent to get flowing effect*/
+
+    font-size: xx-large;/*set font size*/
+}
+
+/*navigation message effect and layout*/
+.navigationMSG{
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: navigationMSG;/*name of animation*/
+    animation-duration: 0.5s;/*duration of animation*/
+    animation-fill-mode: forwards; /*keep the last stage of animation*/
+    animation-delay: 1s;/*delay 1 second before the animation start*/
+
+
+    margin-bottom: 1.5em;
+    margin-top: 2em;
+    font-weight: bold;
+    font-size: 0.8em;
+    font-style: italic;
+    position: relative;/*set the position is relative to keep the space for the effect*/
+    left: -100%;
+}
+/*animation fuction slide left to right*/
+@keyframes navigationMSG
+{
+    from {
+        left: -100%;
+
+    }
+    to {
+        left: 0;
+
+    }
+}
+/*setting of the floor plan in the hone page*/
+.contentMap
+{
+    text-align: center;    
+    position: relative;
+    /*have to be relative to SVG tag overlap the picture. 
+    because it will keep the size of the picture and SVG position will be absolute.
+    SVG can overlap almost perfectly with small reposition and it will be adjust itself 
+    when screen size is changed.
+    map can be used in this but it can not adjust itself when the picture size is changing. 
+    SVG is the best solution*/
+
+}
+/*set picture floor plan*/
+.floorPlanPic
+{
+    border: solid 0.01em transparent;   
+    width: 80%;    
+    z-index: 0;/*have to be 0 to show under svg tag*/
+
+}
+/*svg tag setting the positon*/
+.clickableArea
+{
+    z-index: 1;/*svg tag overlap on the picture*/
+    position: absolute;
+    border: solid 0.01em transparent;
+    width: 80%;
+    height: 100%;
+    top: -3px;/*need to be -3 in order to correct position when resizing the picture*/
+}
+/*setting up the circles*/
+.militaryButt,
+.educationalButt,
+.industrialButt,
+.domesticButt,
+.mainDoor
+{
+
+    /*  
+   Animation can be setting by different browers such as 
+   -moz-...: firefox
+   -o-... : opera
+   -webkit-...: safari
+   -ms-...: microsoft
+   General is below:
+    */
+    stroke: none;/*remove the ring*/
+    animation-name: mapHover;/*name of animation*/
+    animation-duration: 1s;/*duration of animation*/
+    animation-iteration-count: 3;    /*run the animation 3 times*/
+    fill: transparent;
+}
+.militaryButt:hover,
+.militaryButt:active,
+.educationalButt:hover,
+.educationalButt:active,
+.industrialButt:hover,
+.industrialButt:active,
+.domesticButt:hover,
+.domesticButt:active,
+.mainDoor:hover,
+.mainDoor:active
+{   
+
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: mapHover;/*name of animation*/
+    animation-duration: 1s;/*duration of animation*/
+    animation-iteration-count: infinite;  /*keep the last stage of animation*/  
+    fill: transparent;
+}
+/*animation fuction*/
+@keyframes mapHover
+{
+    0% {
+        fill: transparent;
+    }
+    50% {
+        fill: rgba(1, 1, 1,0.5);
+    }
+    100% {
+        fill: transparent;
+    }
+}
+/*-------------footer----------------------*/
+/*setting the footer*/
+footer{
+
+
+    background:var(--headerBackGround);/*setting the background color*/
+    z-index: 0;
+
+}
+/*setting the body hight to make sure the footer always stick on the bottom*/
+.details {
+    min-height: calc(100vh - 4em);/*4em is the min height of footer*/
+}
+/*wrapper of all details of the footer*/
+.footerWrapper {
+    display: flex;/*need to be flex*/
+    flex-direction: row;/*all ellement in one row*/
+    overflow: hidden;/*outside of it will be hidden*/
+    min-height: 4em;
+}
+/*footer ditails content all the others but social media*/
+.footerDetails {
+    color: white;/*color of words*/
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-right: 0.5em;
+}
+/*copyright word setting*/
+.copyright {
+    text-align: center;
+    width: fit-content;
+}
+/*setting social media icon*/
+.socialMedia {
+    width: 100%;/*width is all the avilable space */
+    padding-top: 0.75em;
+    direction: rtl;/*apprear right to left*/
+
+}
+/*setting social media spacing*/
+.socialMedia > a
+{
+    margin-left: 0.5em;
+}
+/*setting social media picture*/
+.socialMedia > a>img
+{
+    width: 3em;
+}
+/*//-----------------------------military robot------------------*/
+/*this is for content of the page which is not main page*/
+.contentSecondary
+{
+    margin-left: 1em!important;/*set it is important to apply this rule*/
+    margin-right: 2em!important;
+
+}
+/*set navigation color*/
+.navigationLink {
+    border-bottom: solid 0.1em rgb(228, 230, 232);
+    padding-bottom: 1em;
+}
+/*set underline for naviagtion link*/
+.navigationLink > a
+{
+    text-decoration: underline;
+    font-size: medium;
+}
+/*main body*/
+.seconderyMain {
+    padding-top: 1em;
+    padding-bottom: 1em;    
+}
+/*details of secondary page*/
+.secondaryDetails {
+    display: flex;/*must be flex to have responsive*/
+    flex-direction: row;/*row first*/
+    flex-wrap: wrap;/*wrap content*/
+    justify-content: center;/*put elements at center*/
+    overflow: hidden;
+}
+/*set picture layout base on ecactly path*/
+.secondaryDetails > div > a > div >img
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 0.1em 0.1em 0 0!important;
+    min-width: 10em;
+    min-height: 10em;    
+    z-index: 0;
+}
+
+
+/*setting title of the image*/
+.titleIMG {
+    color: var(--headerBackGround);
+    border-radius: 0 0 0.1em 0.1em;
+    border-top: solid 0.1em rgb(228, 230, 232);
+    z-index: 0;
+    font-size: 1.2em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+/*picture wrapper to have the space between them*/
+.seconderyIMGWrapper {
+    margin: 1.5em;
+    width: 15em;
+    height: 15em;    
+}
+/*img wrapper is the details of the picture with short summary*/
+.IMGWrapper {
+    display: flex;/*need to be flex*/
+    flex-direction: column;/*show as column*/
+    width: 100%;
+    height: 100%;
+    border: solid 0.3em var(--bodybackGround);
+    border-radius: 0.1em;
+    background: var(--bodybackGround);
+    text-align: center;
+    position: relative;/*ned to be relative to keep the size fit with the picture*/
+    overflow: hidden;/*hidden the content outside of the block*/
+    box-shadow: 0 0 0.6em 0.1em grey;/*shador effect*/
+}
+/*hovering effect of the picture*/
+.IMGWrapper:hover,
+.IMGWrapper:active
+{
+
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: IMGWrapperHoveringShadow;/*name of animation*/
+    animation-duration: 1s;/*duration of animation*/
+    animation-iteration-count: infinite; /*keep the last stage of animation*/
+    box-shadow: 0 0 0.6em 0.1em grey;
+}
+/*animation fuction*/
+@keyframes IMGWrapperHoveringShadow
+{
+    0% {
+        box-shadow: 0 0 0.6em 0.1em grey;
+    }
+    50%
+    {
+        box-shadow: 0 0 0.6em 0.6em grey;
+    }
+    100% {
+        box-shadow: 0 0 0.6em 0.1em grey;
+    }
+}
+/*short summary setting of picture*/
+.shortSummary {
+    z-index: 1;/*make sure the summary on top of picture*/
+    position: absolute;/*must be absolute to have the effect*/
+    text-align: center;
+    width: 100%;
+    left: -100%;/*hidden outside of the block*/
+    background: rgba(1, 1, 1,0.7);
+    color: white;
+    font-size: 1.1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+/*set span text in summary*/
+.shortSummary > span
+{
+    font-style: italic;
+    margin-bottom: 0.2em;
+    padding: 0.1em;
+    border-radius: 0.5em;
+    color: white;   
+    display: block;
+    width: fit-content;
+    margin: auto;
+    font-weight: 600;
+    text-decoration: underline;
+    font-size: 16px;
+
+}
+/*setting the sliding effect when picture is hovered*/
+.clickableLineHover:hover > .IMGWrapper > .shortSummary,
+.clickableLineHover:active > .IMGWrapper > .shortSummary{
+
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: clickableLineHover;/*name of animation*/
+    animation-duration: 0.5s;/*duration of animation*/
+    animation-fill-mode: forwards;/*keep the last stage of animation*/
+
+}
+/*animation fuction*/
+@keyframes clickableLineHover
+{
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 0;
+    }
+}
+
+/*----------------------------------details page-------------------------------*/
+/*the third levels page showing the details*/
+.detailsPagePicWrapper{
+    text-align: center;
+    position: relative;/*set position relative*/
+    float: left;/*picture show at the left*/
+    width: fit-content;
+    height: fit-content;
+    background: var(--headerBackGround);
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+    border-radius: 0 0 0.1em 0.1em;
+    border: solid 0.1em var(--headerBackGround);
+
+}
+/*image setting*/
+.detailsPagePicWrapper > img
+{
+    border-radius: 0 !important;
+    width: 15em;    
+
+}
+/*the article layout setting*/
+.articleFormat {
+    margin-top: 1em;
+    margin-bottom: 3em;
+    text-align:left ;
+    line-height: 1.6em;
+    font-size: 1.2em;
+    width: 100%;
+}
+/*the title of the picture*/
+.detailsPagePicWrapper > h4
+{
+    color: white;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+/*setting word style of the article summary */
+.detailsPageTitalePic
+{
+    font-size: 1em;
+    font-weight: 600;
+}
+/*------------------About Us----------------------------*/
+/*about us page*/
+.abouUs {
+    margin-left: 2em;
+}
+/*----------------------open hours------------------------*/
+/*open hours layout setting*/
+.businessHours,
+.privateT,
+.entranceFees{
+    width: 80%;
+    margin: auto;/*make the element at the middle*/
+}
+/*the content*/
+.businessCotain {
+    width: 100%;
+    margin-bottom: 5em;
+    margin-top: 5em;
+}
+/*the title the blocks*/
+.businessHoursTitle {
+    text-align: center;
+    background: var(--headerBackGround);
+    color: white;
+    padding: 0.5em;
+    margin-top: 2em;
+    border-radius: 0.2em 0.2em 0 0;
+    font-size: 1em;
+}
+/*the details of the blocks*/
+.businessHoursDetails {
+    border-radius: 0 0 0.2em 0.2em;
+    padding: 1em;
+    color: var(--headerBackGround);
+    font-weight: bold;
+    border-left: solid 0.1em var(--headerBackGround);
+    border-right: solid 0.1em var(--headerBackGround);
+    border-bottom: solid 0.1em var(--headerBackGround);
+}
+/*-------------------------------------Mobile---------------------------------*/
+/*hidden naviagtion bar*/
+.navigationBarMobile{
+    display: none;
+}
+/*set logo in center*/
+.logoSize
+{
+    text-align: center;
+}
+/*selecting effect*/
+.navigationBarMobile:hover > .dropDownList > .menuButton,
+.navigationBarMobile:active > .dropDownList > .menuButton,
+.dropDownList:hover,
+.dropDownList:active
+{
+    /*  
+    Animation can be setting by different browers such as 
+    -moz-...: firefox
+    -o-... : opera
+    -webkit-...: safari
+    -ms-...: microsoft
+    General is below:
+    */
+    animation-name: menuItemHover;/*name of animation*/
+    animation-duration: 0.3s;/*duration*/
+    animation-fill-mode: forwards;/*keep the last stage*/    
+
+
+}
+/*hdden list of exhibiton*/
+.listOptionMobile
+{
+    box-shadow: inset 0 0 0.5em 0.01em grey;
+    display: block;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+
+}
+/*set the with as auto*/
+.listOptionMobile > li > a
+{
+    width: auto;
+}
+/*-------------------------------break point----------------------------------*/
+@media only screen and (max-width: 1100px)/*Smaller than the given size*/
+{
+    /*change header flow*/
+    .topHeader
+    {
+        flex-direction: column; /*change to columns flow*/       
+    }
+    /*change logo position to center*/
+    .logo
+    {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /*set navigation bar as center*/
+    .navigationBar
+    {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /*set banner size*/
+    .banner
+    {
+        height: 15em;
+    }
+    /*change position of picture in content pages*/
+    .detailsPagePicWrapper
+    {
+        float: none;
+        /*set picture at center*/
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2em;
+        width: min-content;
+    }
+}
+
+@media only screen and (max-width: 830px)/*Smaller then the given size*/
+{
+    /*change flow of header*/
+    .topHeader
+    {
+        flex-direction: row;
+        flex-flow: row-reverse;/*reverse the flow*/
+    }
+    /*change the format of logo*/
+    .logo
+    {
+
+        margin-bottom: 0.5em;
+        margin-top: 0.5em;
+        height: 2.5em;
+        width: 11em;
+        margin-left: 0.5em;
+    }
+    /*hiden the banner*/
+    .banner
+    {
+        display: none;
+    }
+    /*hidden the navigation bar*/
+    .navigationBar
+    {
+        display: none;
+    }
+    /*show mobile navigation*/
+    .navigationBarMobile{
+        display: block;
+        width: 100%;       
+    }
+    /*setup the menu word on navigation bar mobile*/
+    .menuButton
+    {
+        color: white;
+        font-weight: bold;
+        margin-top: 0.1em;
+        display: block;
+        width: 3.5em;
+        height: 1.7em;
+        padding-top: 0.8em;
+        border: solid 1px white;
+        text-align: center;
+        border-radius: 0.5em;
+    }
+    /*set the height of the dropdown list*/
+    .dropDownList
+    {
+        height: 100%;
+    }
+    /*make the dropdown list fit with the size of the screen*/
+    .listOption
+    {
+        margin-top: 0.2em;
+        left: 0;
+        width: 100%;/*fit the width of screen*/
+        height: calc(100vh - 3em);/*fit the height of screen*/
+        overflow: scroll;/*show scroll bar if the screen to small*/
+        border-radius: 0;
+    }
+    /*change the logo size*/
+    .logoSize
+    {
+        width: 50%;
+        text-align: right;
+    }
+    /*change the a span tags size*/
+    .listOption>li>a,
+    .listOption>li>span{
+        width: auto;
+    }
+
+}
+/*touch screen divices*/
+@media (hover: none) and (pointer: coarse) {
+    .shortSummary 
+    {
+        position: initial;/*set location as original position*/
+    }
+    .seconderyIMGWrapper
+    {
+        height: 25em;/*set hight of the content*/
+    }
+}

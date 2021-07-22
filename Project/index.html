@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+Author: Quyet Quang Quy
+ID: 12118217
+Date: 05 Dec 2020
+Version: 1.0
+Robot Exhibition Webs.
+This page is the home page.
+Almost the words and pictures are from Wikipedia Web others from general sources such as business companies.
+The purpose is to study only.
+-->
+<html>
+    <head>
+        <title>Robot Exhibition</title><!-- title page -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="MyPictures/webPageIcon.png"/><!-- the icon of the page-->
+        <link rel="stylesheet" type="text/css" href="page_style.css" media="screen"/>
+    </head>
+    <body>
+        <div class="details"><!-- first part -->
+            <header><!-- header -->
+                <div class="topHeader defaultSize">
+                    <a  class="logoSize" href="index.html">
+                        <img class="logo" src="Logo.png" alt="Logo"/><!-- logo -->
+                    </a>
+                    <nav class="navigationBar"><!-- navigation bar with drop down list -->
+                        <a href="myWebs/about_us.html">
+                            <span id="aboutUs">About Us</span>
+                        </a>
+                        <a href="myWebs/business_hours.html">
+                            <span>Business Hours</span> 
+                        </a>
+
+                        <div class="dropDownList"><!-- drop down list -->
+                            <span>Exhibition</span>
+                            <ul class="listOption"><!-- list of links -->
+                                <li><a href="myWebs/domestic_rotbots.html">Domestic Robots</a></li>
+                                <li><a href="myWebs/educational_robotics.html">Educational Robotics</a></li>
+                                <li><a href="myWebs/industrial_robots.html">Industry Robots</a></li>
+                                <li><a href="myWebs/military_robots.html">Military Robots</a></li>
+                                <li><a href="myWebs/suggestion.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <a href="index.html">
+                            <span>Home</span>
+                        </a>
+
+                    </nav>
+
+                    <nav class="navigationBarMobile"><!-- navigation bar with drop down list -->
+                        <div class="dropDownList"><!-- drop down list -->
+                            <span class="menuButton">Menu</span>
+                            <ul class="listOption"><!-- list of links -->
+                                <li><a href="index.html">Home</a></li>
+                                <li> 
+                                    <span style="font-weight: bold;">Exhibition</span>                                   
+                                    <ul class="listOptionMobile" >
+                                        <li><a href="myWebs/domestic_rotbots.html">Domestic Robots</a></li>
+                                        <li><a href="myWebs/educational_robotics.html">Educational Robotics</a></li>
+                                        <li><a href="myWebs/industrial_robots.html">Industry Robots</a></li>
+                                        <li><a href="myWebs/military_robots.html">Military Robots</a></li>
+                                    </ul>
+
+                                </li>                                
+                                <li><a href="myWebs/business_hours.html">Business Hours</a></li>
+                                <li><a href="myWebs/suggestion.html">Contact Us</a></li>
+                                <li><a href="myWebs/about_us.html">About Us</a></li>
+                            </ul>
+                        </div>
+
+                    </nav>
+                </div>
+
+
+            </header>
+
+            <div class="banner defaultSize">   <!-- banner with slide show -->             
+                <img class="firstBanner" src="MyPictures/banner1.jpg" alt="Banner 1"/>
+                <img class="secondBanner" src="MyPictures/banner2.jpg" alt="Banner 2"/>                
+                <img class="thirdBanner" src="MyPictures/banner4.jpg" alt="Banner 3"/>
+                <img class="finalBanner" src="MyPictures/banner3.jpg" alt="Banner 4"/>
+                <!-- title of each picture -->
+                <h5 class="textBanner1">Who needs friends? We’ve got robots!</h5>
+                <h5 class="textBanner2">The future is now!</h5>
+                <h5 class="textBanner3">There are an endless number of things to discover about robotics. A lot of it is just too fantastic for people to believe (Daniel H. Wilson)</h5>
+                <h5 class="textBanner4">Robotics and other combinations will make the world pretty fantastic compared with today (Bill Gates)</h5>
+                <div style="display: block; background: black; opacity: 0.1;">
+
+                </div>
+            </div>
+
+            <!-- the main content -->
+            <main class="defaultSize" >
+                <!-- feedback block -->
+                <div class="feedback"> 
+                    <h4>Feedback</h4><!-- feedback title -->
+                    <div class="feedbackDetails">
+                        <span>How useful this page?</span><!-- feedback details -->
+                        <form action="#" method="post">  
+                            <input type="radio" id="HS" name="rate" value="HS">
+                            <label for="HS">Highly Satisfied</label> <br/>
+                            <input type="radio" id="S" name="rate" value="S">
+                            <label for="S">Satisfied</label><br/>
+                            <input type="radio" id="N" name="rate" value="N">
+                            <label for="N">Neutral</label><br/> 
+                            <input type="radio" id="D" name="rate" value="D">
+                            <label for="D">Dissatisfied</label><br/>
+                            <input type="radio" id="HD" name="rate" value="HD">
+                            <label for="HD">Highly Dissatisfied</label><br/>
+                            <div class="feedbackButtons">
+                                <input type="submit" name="submit" value="Rate">
+                                <a href="myWebs/suggestion.html">Suggestion</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- welcome message -->
+                <section class="welcomeMessage">
+                    <h2 class="wellcomeCharactor">Welcome to robots exhibition</h2>
+                    <br>
+                    <p class="navigationMSG">Please select the circles to visit the halls </p>
+                </section>
+                <!-- floor plan including picture and 2D circles  -->
+                <div class="contentMap">
+                    <svg class="clickableArea" viewBox="0 0 100 100">
+                    <a href="myWebs/military_robots.html"> 
+                        <circle class="militaryButt" cx="50.05%" cy="18.5%" r="11.5%"/>                      
+                    </a>
+                    <a href="myWebs/educational_robotics.html">
+                        <circle class="educationalButt" cx="50.0%" cy="58%" r="14.5%"/>
+                    </a>
+                    <a href="myWebs/industrial_robots.html">
+                        <circle class="industrialButt" cx="80.0%" cy="41.5%" r="11.5%"/>
+                    </a>
+                    <a href="myWebs/domestic_rotbots.html">
+                        <circle class="domesticButt" cx="18.4%" cy="39.1%" r="11.5%"/>
+                    </a>
+                    <a href="myWebs/business_hours.html">
+                        <polygon class="mainDoor" points="
+                                 34.9,103 
+                                 39.4,92.5 
+                                 61.8,92.5 
+                                 67,103"/>
+                    </a>
+                    </svg>
+                    <img class="floorPlanPic" src="Floor_Plan.jpg" alt="floor_plan"/><!-- floor picture -->
+                </div>
+
+            </main>
+        </div>
+        <!-- footer page -->
+        <footer>
+            <div class="defaultSize footerWrapper">
+                <!-- footer details -->
+                <div class="footerDetails">
+                    <h5 class="copyright">© Copyright 1999-2020 Robot Expo & Senior Management</h5>
+                </div> 
+                <!-- cocial media logo end hyperlink -->
+                <div class="socialMedia">
+                    <a href="https://google.com/">
+                        <img src="MyPictures/google-plus.png" alt="Google"/>
+                    </a>
+                    <a href="https://www.instagram.com/">
+                        <img src="MyPictures/instagram.png" alt="Instagram"/>
+                    </a>
+                    <a href="https://twitter.com/">
+                        <img src="MyPictures/twitter.png" alt="Twitter"/>
+                    </a>
+                    <a href="https://www.facebook.com/">
+                        <img src="MyPictures/facebook.png" alt="FaceBook"/>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
